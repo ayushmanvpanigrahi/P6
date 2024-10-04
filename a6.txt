@@ -1,0 +1,80 @@
+Practical 6
+
+
+ifconfig
+
+rpm -q openssh
+
+systemctl restart sshd
+systemctl status sshd
+systemctl stop firewalld
+
+
+client:-
+
+ifconfig
+
+rpm -q openssh
+
+systemctl restart sshd
+systemctl status sshd
+systemctl stop firewalld
+
+ssh root@10.0.0.50
+
+who
+
+
+server:-
+
+exit
+
+ssh-keygen -t rsa
+
+
+
+client:-
+
+pwd
+
+ls -a
+
+mkdir .ssh
+
+touch .ssh/authorized_keys
+
+chmod 777 .ssh
+
+chmod 666 .ssh/authorized_keys
+
+
+server:-
+
+scp /root/.ssh/id_rsa.pub root@10.0.0.50:.ssh/authorized_keys
+(password:redhat)
+
+systemctl restart sshd
+systemctl stop firewalld
+
+
+client:-
+
+systemctl restart sshd
+systemctl stop firewalld
+
+cat .ssh/authorized_keys
+
+
+server:-
+
+
+ssh root@10.0.0.50
+
+(enter passphase to login:empty)
+
+
+
+
+client:-
+
+who
